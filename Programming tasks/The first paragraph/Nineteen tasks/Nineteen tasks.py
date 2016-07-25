@@ -27,19 +27,18 @@ while initialDistance == 0:
 D = ((oneSpeed + twoSpeed) ** 2) + 2 * initialDistance * (oneSpeedup + twoSpeedup)
 
 # Вычисление времени до столкновения
-totalTime = 0
+time = 0
 
 if D == 0:
-    totalTime = - (oneSpeed + twoSpeed) / (2 * (oneSpeedup + twoSpeedup))
+    time = - (oneSpeed + twoSpeed) / (2 * (oneSpeedup + twoSpeedup))
 
 elif D > 0:
     tmpTimeOne = (-(oneSpeed + twoSpeed) + math.sqrt(D)) / (oneSpeedup + twoSpeedup)
     tmpTimeTwo = (-(oneSpeed + twoSpeed) - math.sqrt(D)) / (oneSpeedup + twoSpeedup)
 
-    totalTime = tmpTimeOne + tmpTimeTwo
-    totalTime = math.fabs(totalTime)
+    time = tmpTimeOne if tmpTimeOne >= 0 else tmpTimeTwo
 
 # Вывод результата
-print("\nВремя до столкновения равно", totalTime)
+print("\nВремя до столкновения равно", time)
 
 input("\nДля завершения программы нажмите любую клавишу...")
